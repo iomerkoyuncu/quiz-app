@@ -31,7 +31,7 @@ export default function Welcome() {
 						</Button>
 					</div>
 				</div>
-				<p>Your answers will be listed below. </p>
+
 				<Answers />
 			</div>
 			<div>

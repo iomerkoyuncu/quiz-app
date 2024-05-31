@@ -63,14 +63,26 @@ function Answers() {
 
 	return (
 		<div className='w-full'>
-			<DataGrid
+			{quizArray.length > 0 ? (
+				<DataGrid
+					rows={quizArray.map((quiz, index) => ({ id: index + 1, ...quiz }))}
+					columns={columns}
+					pageSize={5}
+					rowsPerPageOptions={[5, 10, 20]}
+					checkboxSelection={false}
+					disableSelectionOnClick
+				/>
+			) : (
+				<p className='text-center'>Your answers will be listed below. </p>
+			)}
+			{/* <DataGrid
 				rows={quizArray.map((quiz, index) => ({ id: index + 1, ...quiz }))}
 				columns={columns}
 				pageSize={5}
 				rowsPerPageOptions={[5, 10, 20]}
 				checkboxSelection={false}
 				disableSelectionOnClick
-			/>
+			/> */}
 			<Modal open={modalOpen} onClose={handleCloseModal}>
 				<Box
 					style={{
